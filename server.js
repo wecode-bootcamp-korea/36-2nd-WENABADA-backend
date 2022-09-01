@@ -2,6 +2,7 @@ require("dotenv").config();
 
 const { createApp } = require("./app");
 const { database } = require("./models/database.js");
+const cors = require('cors');
 
 const cors = require('cors');
 

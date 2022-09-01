@@ -1,5 +1,6 @@
 const productService = require('../services/productService');
 const error = require("../middlewares/errorConstructor");
+const eNum = require('../models/eNum');
 
 const getProductRandomList = async (req, res) => {
     const productRandomList = await productService.getProductRandomList();
@@ -40,11 +41,87 @@ const getProductSearchList = async (req, res) => {
     res.status(200).json({productSearchList : productSearchList})
 };
 
+const getProductInfo = async (req, res) => {
+  const { id } = req.query;
+  const userId = req.body.decoded.id;
+  const getProductInfo = await productService.getProductInfo(id, userId);
+  res.status(200).json(JSON.parse(Object.values(getProductInfo[0])));
+}
+
+
+const getProductCategoryInfo = async (req, res) => {
+  const { id } = req.query
+  const getProductInfo = await productService.getProductCategoryInfo( id );
+  res.status(200).json(JSON.parse(Object.values(getProductInfo[0])));
+}
+
+const addProductLike = async (req, res) => {
+  const { id } = req.query;
+  const userId = req.body.decoded.id;
+
+  const addProductLike = await productService.addProductLike( id, userId );
+  if( addProductLike == eNum.Exists ) {
+  res.status(200).json({"message":"SUCCESS_ADD"});
+  } else res.status(200).json({"message":"SUCCESS_DELETE"});
+}
+
+const getCheckLikeInfo = async (req, res) => {
+  const { id } = req.query;
+  const userId = req.body.decoded.id;
+  const getCheckLikeInfo = await productService.getCheckLikeInfo(id, userId);
+  if( getCheckLikeInfo == eNum.Exists) {
+  res.status(200).json({"message" : "TRUE"});
+  } else res.status(200).json({"message" : "FALSE"});
+} 
+
+const getSellerInfo = async (req, res) => {
+  const { id } = req.query;
+  const userId = req.body.decoded.id;
+  const getSellerInfo = await productService.getSellerInfo( id, userId );
+  res.status(200).json(getSellerInfo);
+} 
+
+const getSellerProduct = async (req, res) => {
+  const { id } = req.query
+  const getSellerProduct = await productService.getSellerProduct( id );
+  res.status(200).json(getSellerProduct);
+  } 
+
+
+const getSellerReview = async (req, res) => {
+  const { id } = req.query
+  const getSellerReview = await productService.getSellerReview( id );
+  res.status(200).json(getSellerReview);
+  } 
+
+const getProductSidebarInfo = async (req, res) => {
+  const { id } = req.query;
+  const userId = req.body.decoded.id;
+  const getSidebarInfo = await productService.getSidebarInfo(  id,userId  )
+  res.status(200).json( getSidebarInfo)
+} 
+
+const getRelateInfo = async (req, res) => {
+  const { id } = req.query;
+  const userId = req.body.decoded.id;
+  const getRelateInfo = await productService.getRelateInfo( id, userId )
+  res.status(200).json(getRelateInfo)
+}
+
 module.exports = {
-    getProductRandomList, 
-    getProductRecommendList, 
-    updateProductRecentWatchList, 
-    getProductRecentWatchList, 
-    getProductlikeNumber, 
-    getProductSearchList
-}    
+  getProductInfo,
+  getProductCategoryInfo,
+  addProductLike,
+  getSellerInfo,
+  getSellerProduct,
+  getSellerReview,
+  getProductSidebarInfo,
+  getRelateInfo,
+  getCheckLikeInfo,
+  getProductRandomList, 
+  getProductRecommendList, 
+  updateProductRecentWatchList, 
+  getProductRecentWatchList, 
+  getProductlikeNumber, 
+  getProductSearchList
+}
