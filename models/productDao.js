@@ -1,7 +1,7 @@
 const { database } = require('./database');
 const error = require("../middlewares/errorConstructor");
 
-const getProductRandomList = async () => {
+const getProductRandomList = async (randomLimit) => {
     return database.query(`
         SELECT 
             id,
@@ -11,7 +11,8 @@ const getProductRandomList = async () => {
             DATE_FORMAT(created_at, '%Y-%c-%e %T') AS created_at,
             user_id
         FROM products
-        ORDER BY RAND() LIMIT 11`
+        ORDER BY RAND() LIMIT ?`,
+        [randomLimit]
     )
 }
 
@@ -30,30 +31,30 @@ const getProductRecommendList = async (categoryId) => {
     )
 }
 
-const getUserLikeCategory = async (userId) => {
+const getUserLikeCategory = async (mainId) => {
     return database.query(`
         SELECT 
             tertiary_categories_id
         FROM products
         INNER JOIN users ON products.id = recently_product_id
-        WHERE social_id = ?`, 
-        [userId]
+        WHERE users.id = ?`, 
+        [mainId]
     )
 }
 
-const updateProductRecentWatchList = async (productId, userId) => {
+const updateProductRecentWatchList = async (productId, mainId) => {
     try {
         return database.query(`
         UPDATE users SET
             recently_product_id = ?
-        WHERE social_id = ?`, 
-        [productId, userId])
+        WHERE users.id = ?`, 
+        [productId, mainId])
     } catch (err) {
         throw new error('INVALID_DATA_INPUT', 500)
     }
 }
 
-const getProductRecentWatchList = async (userId) => {
+const getProductRecentWatchList = async (mainId) => {
     return database.query(`
         SELECT 
             products.id,
@@ -64,8 +65,8 @@ const getProductRecentWatchList = async (userId) => {
             user_id
         FROM users 
         INNER JOIN products ON recently_product_id = products.id
-        WHERE social_id = ?`,
-        [userId]
+        WHERE users.id = ?`,
+        [mainId]
     )
 }
 
@@ -100,5 +101,11 @@ const getProductSearchList = async (values) => {
 }
 
 module.exports = {
-    getProductRandomList, getProductRecommendList, getUserLikeCategory, updateProductRecentWatchList, getProductRecentWatchList, getProductlikeNumber, getProductSearchList
+    getProductRandomList, 
+    getProductRecommendList, 
+    getUserLikeCategory, 
+    updateProductRecentWatchList, 
+    getProductRecentWatchList, 
+    getProductlikeNumber, 
+    getProductSearchList
 }

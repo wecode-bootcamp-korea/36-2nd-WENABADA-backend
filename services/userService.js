@@ -24,7 +24,7 @@ const login = async (kakaoToken) => {
         await userDao.createUser(userId)
     }
     const mainId = await userDao.checkMainId(userId)
-    const payLoad = { id : mainId[0].id, social_id : userId }
+    const payLoad = { id : mainId[0].id}
     const token = jwt.sign(payLoad, secretKey)
     return token
 };

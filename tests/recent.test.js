@@ -29,4 +29,12 @@ describe("/products/recent/watch/list", () => {
             }
         ] });
     });
+
+    test("FAILED: URL ERROR", async () => {
+        await request(app)
+        .get("/products/recent/watch/lis")
+        .set('authorization', process.env.TOKEN)
+        .expect(404)
+        .expect({});
+    });
 });

@@ -18,4 +18,11 @@ describe("/products/random/list", () => {
         .get("/products/random/list")
         .expect(200)
     });
+
+    test("FAILED: URL ERROR", async () => {
+        await request(app)
+        .get("/products/random/lis")
+        .expect(404)
+        .expect({});
+    });
 });

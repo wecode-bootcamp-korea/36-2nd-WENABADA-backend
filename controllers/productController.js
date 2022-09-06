@@ -7,29 +7,29 @@ const getProductRandomList = async (req, res) => {
 };
 
 const getProductRecommendList = async (req, res) => {
-    const userId = req.body.decoded.social_id;
-    const productRecommendList = await productService.getProductRecommendList(userId);
+    const mainId = req.body.decoded.id;
+    const productRecommendList = await productService.getProductRecommendList(mainId);
     res.status(200).json({productRecommendList : productRecommendList})
 };
 
 const updateProductRecentWatchList = async (req, res) => {
-    const userId = req.body.decoded.social_id;
+    const mainId = req.body.decoded.id;
     const { productId } = req.body;
     if(!productId){
         throw new error("KEY_ERROR", 400);
     }
-    await productService.updateProductRecentWatchList(productId, userId);
+    await productService.updateProductRecentWatchList(productId, mainId);
     res.status(201).json({ message: "product_updated" });
 }
 
 const getProductRecentWatchList = async (req, res) => {
-    const userId = req.body.decoded.social_id;
-    const productRecentWatchList = await productService.getProductRecentWatchList(userId);
+    const mainId = req.body.decoded.id;
+    const productRecentWatchList = await productService.getProductRecentWatchList(mainId);
     res.status(200).json({productRecentWatchList : productRecentWatchList})
 };
 
 const getProductlikeNumber = async (req, res) => {
-    const mainId = req.body.decoded.id
+    const mainId = req.body.decoded.id;
     const productlikeNumber = await productService.getProductlikeNumber(mainId);
     res.status(200).json({productlikeNumber : productlikeNumber})
 };
@@ -41,5 +41,10 @@ const getProductSearchList = async (req, res) => {
 };
 
 module.exports = {
-    getProductRandomList, getProductRecommendList, updateProductRecentWatchList, getProductRecentWatchList, getProductlikeNumber, getProductSearchList
+    getProductRandomList, 
+    getProductRecommendList, 
+    updateProductRecentWatchList, 
+    getProductRecentWatchList, 
+    getProductlikeNumber, 
+    getProductSearchList
 }    

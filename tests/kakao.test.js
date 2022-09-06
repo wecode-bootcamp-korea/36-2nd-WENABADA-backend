@@ -12,9 +12,6 @@ beforeAll(async () => {
 });
 
 afterAll(async () => {
-  await database.query('SET FOREIGN_KEY_CHECKS=0');
-  await database.query('TRUNCATE users');
-  await database.query('SET FOREIGN_KEY_CHECKS=1');
   await database.destroy();
 });
 

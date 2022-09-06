@@ -56,4 +56,11 @@ describe("/products/search/list", () => {
             }
         ] });
     });
+
+    test("FAILED: URL ERROR", async () => {
+        await request(app)
+        .get("/products/searc")
+        .expect(404)
+        .expect({});
+    });
 });

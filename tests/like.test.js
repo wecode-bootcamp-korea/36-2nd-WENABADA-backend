@@ -24,4 +24,12 @@ describe("/products/like/number", () => {
             }
         ] });
     });
+
+    test("FAILED: URL ERROR", async () => {
+        await request(app)
+        .get("/products/like/numbe")
+        .set('authorization', process.env.TOKEN)
+        .expect(404)
+        .expect({});
+    });
 });

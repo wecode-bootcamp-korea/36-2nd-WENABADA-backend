@@ -1,12 +1,13 @@
 const productDao = require('../models/productDao')
 
 const getProductRandomList = async () => {
-    const productRandomList = await productDao.getProductRandomList()
+    let randomLimit = 11
+    const productRandomList = await productDao.getProductRandomList(randomLimit)
     return productRandomList;
 };
 
-const getProductRecommendList = async (userId) => {
-    const userLikeCategory = await productDao.getUserLikeCategory(userId)
+const getProductRecommendList = async (mainId) => {
+    const userLikeCategory = await productDao.getUserLikeCategory(mainId)
     if(userLikeCategory.length === 0){
         userLikeCategory.push({tertiary_categories_id : 1})
     }
@@ -15,13 +16,13 @@ const getProductRecommendList = async (userId) => {
     return productRecommendList;
 };
 
-const updateProductRecentWatchList = async(productId, userId) => {
-    const productRecentWatchList = await productDao.updateProductRecentWatchList(productId, userId);
+const updateProductRecentWatchList = async(productId, mainId) => {
+    const productRecentWatchList = await productDao.updateProductRecentWatchList(productId, mainId);
     return productRecentWatchList
 }
 
-const getProductRecentWatchList = async (userId) => {
-    const productRecentWatchList = await productDao.getProductRecentWatchList(userId)
+const getProductRecentWatchList = async (mainId) => {
+    const productRecentWatchList = await productDao.getProductRecentWatchList(mainId)
     return productRecentWatchList;
 };
 
@@ -37,5 +38,10 @@ const getProductSearchList = async (query) => {
 };
 
 module.exports = {
-    getProductRandomList, getProductRecommendList, updateProductRecentWatchList, getProductRecentWatchList, getProductlikeNumber, getProductSearchList
+    getProductRandomList, 
+    getProductRecommendList, 
+    updateProductRecentWatchList, 
+    getProductRecentWatchList, 
+    getProductlikeNumber, 
+    getProductSearchList
 }
