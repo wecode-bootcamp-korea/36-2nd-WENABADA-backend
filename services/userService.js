@@ -19,13 +19,13 @@ const login = async (kakaoToken) => {
     if(!userId){
         throw new error("KEY_ERROR", 400);
     }
-    const mainId = await userDao.checkMainId(userId)
-    const payLoad = { id : mainId, social_id : userId }
-    const token = jwt.sign(payLoad, secretKey)
     const idCheck = await userDao.idCheck(userId)
     if(Number(Object.values(idCheck[0])[0]) === 0){
         await userDao.createUser(userId)
     }
+    const mainId = await userDao.checkMainId(userId)
+    const payLoad = { id : mainId[0].id}
+    const token = jwt.sign(payLoad, secretKey)
     return token
 };
   

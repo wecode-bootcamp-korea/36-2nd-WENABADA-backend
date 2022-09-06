@@ -3,11 +3,7 @@ function errorHandler(asyncController) {
         try {
             await asyncController(req, res)
         } catch (err) {
-            if (err.message === "KEY_ERROR") {
-                return res.status(err.statusCode ? err.statusCode : 400).json({ message : err.message });
-            } else {
-                return res.status(500).json({ message : err.message });
-            }
+            res.status(err.status ? err.status : 500).json({ message : err.message });
         }
     }
 }
