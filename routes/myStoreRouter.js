@@ -1,5 +1,3 @@
-"use strict";
-
 const express = require("express");
 const myStoreController = require('../controllers/myStoreController');
 const errorHandler = require("../middlewares/errorHandler");
