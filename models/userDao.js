@@ -1,4 +1,5 @@
 const { database } = require('./database');
+
 const error = require("../middlewares/errorConstructor");
 
 const checkMainId = async (userId) => {

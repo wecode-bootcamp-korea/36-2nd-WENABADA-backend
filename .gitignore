@@ -4,3 +4,4 @@ db/schema.sql
 .vscode
 .DS_Store
 .env.test 
+.package-lock.json
