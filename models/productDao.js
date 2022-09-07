@@ -101,7 +101,6 @@ const getProductSearchList = async (values) => {
 }
 
 const getProductInfo = async ( id, userId ) => {
-  console.log( id, userId)
   try{
     return await database.query(
       `
@@ -260,7 +259,6 @@ const getSellerReview = async (id) => {
 }
 
 const getSidebarInfo = async (id,userId) => {
-  console.log(id,userId)
   try{
     return database.query(
       `
@@ -274,7 +272,6 @@ const getSidebarInfo = async (id,userId) => {
 }
 
 const getRelateInfo = async (id ,firstCategory, subCategory, lastCategory) => {
-  console.log(id ,firstCategory, subCategory, lastCategory)
   try{
     return database.query(
       `
@@ -293,7 +290,6 @@ const getRelateInfo = async (id ,firstCategory, subCategory, lastCategory) => {
 }
 
 const getCheckLikeInfo = async (id, result) => {
-  console.log("id", id , "re", result);
   try {
     return database.query(
       `

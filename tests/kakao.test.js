@@ -27,7 +27,6 @@ test("SUCCESS: kakao login", async () => {
     .set({
       Authorization: "kakaoToken"
     });
-    console.log(result.body)
     expect(result.status).toEqual(201)
 });
 

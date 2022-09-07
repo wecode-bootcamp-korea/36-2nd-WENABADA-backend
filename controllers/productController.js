@@ -8,13 +8,13 @@ const getProductRandomList = async (req, res) => {
 };
 
 const getProductRecommendList = async (req, res) => {
-    const mainId = req.body.decoded.id;
+    const mainId = req.decoded.id;
     const productRecommendList = await productService.getProductRecommendList(mainId);
     res.status(200).json({productRecommendList : productRecommendList})
 };
 
 const updateProductRecentWatchList = async (req, res) => {
-    const mainId = req.body.decoded.id;
+    const mainId = req.decoded.id;
     const { productId } = req.body;
     if(!productId){
         throw new error("KEY_ERROR", 400);
@@ -24,13 +24,13 @@ const updateProductRecentWatchList = async (req, res) => {
 }
 
 const getProductRecentWatchList = async (req, res) => {
-    const mainId = req.body.decoded.id;
+    const mainId = req.decoded.id;
     const productRecentWatchList = await productService.getProductRecentWatchList(mainId);
     res.status(200).json({productRecentWatchList : productRecentWatchList})
 };
 
 const getProductlikeNumber = async (req, res) => {
-    const mainId = req.body.decoded.id;
+    const mainId = req.decoded.id;
     const productlikeNumber = await productService.getProductlikeNumber(mainId);
     res.status(200).json({productlikeNumber : productlikeNumber})
 };
@@ -43,7 +43,7 @@ const getProductSearchList = async (req, res) => {
 
 const getProductInfo = async (req, res) => {
   const { id } = req.query;
-  const userId = req.body.decoded.id;
+  const userId = req.decoded.id;
   const getProductInfo = await productService.getProductInfo(id, userId);
   res.status(200).json(JSON.parse(Object.values(getProductInfo[0])));
 }
@@ -57,7 +57,7 @@ const getProductCategoryInfo = async (req, res) => {
 
 const addProductLike = async (req, res) => {
   const { id } = req.query;
-  const userId = req.body.decoded.id;
+  const userId = req.decoded.id;
 
   const addProductLike = await productService.addProductLike( id, userId );
   if( addProductLike == eNum.Exists ) {
@@ -67,7 +67,7 @@ const addProductLike = async (req, res) => {
 
 const getCheckLikeInfo = async (req, res) => {
   const { id } = req.query;
-  const userId = req.body.decoded.id;
+  const userId = req.decoded.id;
   const getCheckLikeInfo = await productService.getCheckLikeInfo(id, userId);
   if( getCheckLikeInfo == eNum.Exists) {
   res.status(200).json({"message" : "TRUE"});
@@ -76,7 +76,7 @@ const getCheckLikeInfo = async (req, res) => {
 
 const getSellerInfo = async (req, res) => {
   const { id } = req.query;
-  const userId = req.body.decoded.id;
+  const userId = req.decoded.id;
   const getSellerInfo = await productService.getSellerInfo( id, userId );
   res.status(200).json(getSellerInfo);
 } 
@@ -96,14 +96,14 @@ const getSellerReview = async (req, res) => {
 
 const getProductSidebarInfo = async (req, res) => {
   const { id } = req.query;
-  const userId = req.body.decoded.id;
+  const userId = req.decoded.id;
   const getSidebarInfo = await productService.getSidebarInfo(  id,userId  )
   res.status(200).json( getSidebarInfo)
 } 
 
 const getRelateInfo = async (req, res) => {
   const { id } = req.query;
-  const userId = req.body.decoded.id;
+  const userId = req.decoded.id;
   const getRelateInfo = await productService.getRelateInfo( id, userId )
   res.status(200).json(getRelateInfo)
 }
