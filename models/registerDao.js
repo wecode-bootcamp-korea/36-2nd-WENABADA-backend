@@ -1,22 +1,20 @@
-const { SimpleConsoleLogger } = require('typeorm');
 const { database } = require('./database');
+const error = require("../middlewares/errorConstructor");
 
-const productRegister = async (name, insertUserId, price, description, local, image_url, category) => {
-  console.log(name, insertUserId, price, description, local, image_url, category)
+const productRegister = async (name, userId, price, description, local, image_url, category) => {
   try {
     return await database.query(
       `
       INSERT INTO products (name, user_id, price, description, address_id, image_url, tertiary_categories_id) 
       VALUES (?, ?, ?, ?, ?, ?, ?);
-      `, [name, insertUserId, price, description, local, image_url, category]
+      `, [name, userId, price, description, local, image_url, category]
     )
   } catch (err) {
-    console.log(err);
+    throw new error('INVALID_DATA_INPUT', 500)
   }
 }
 
 const selectLocation = async (address) => {
-  console.log(address);
   try {
     return await database.query(
       `
@@ -24,25 +22,11 @@ const selectLocation = async (address) => {
       `
     ) 
   } catch (err) {
-   console.log(err);
-  }
-}
-
-const selectUserId = async (socialId) => {
-  console.log(socialId);
-  try {
-    return await database.query(
-      `
-      select id as userId FROM users u WHERE u.social_id='${socialId}'   
-      `
-    ) 
-  } catch (err) {
-   console.log(err);
+    throw new error('INVALID_DATA_INPUT', 500)
   }
 }
 
 module.exports = {
   productRegister,
-  selectLocation,
-  selectUserId,
+  selectLocation
 }

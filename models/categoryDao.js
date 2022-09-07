@@ -21,7 +21,7 @@ const getFirstCategoryProductList = async ( firstCategory, pageNo, limit ) => {
       `
     )
   } catch(err) {
-    throw new error("INVALID_DATA_INPUT",400);  }
+    throw new error("INVALID_DATA_INPUT",500);  }
 }
 
 const getSubCategoryProductList = async ( firstCategory, subCategory, pageNo, limit  ) => {
@@ -41,7 +41,7 @@ const getSubCategoryProductList = async ( firstCategory, subCategory, pageNo, li
       LIMIT ${limit} OFFSET ${offset}
       `
     )} catch(err) {
-      throw new error("INVALID_DATA_INPUT",400); 
+      throw new error("INVALID_DATA_INPUT",500); 
   }
 }
 
@@ -64,7 +64,7 @@ const getLastCategoryProductList = async (firstCategory, subCategory, lastCatego
       LIMIT ${limit} OFFSET ${offset}
       `
     )} catch(err) {
-      throw new error("INVALID_DATA_INPUT",400); 
+      throw new error("INVALID_DATA_INPUT",500); 
   }
 }
 
@@ -89,7 +89,7 @@ const getPriceFilterList = async (firstCategory, subCategory, lastCategory, page
       LIMIT ${limit} OFFSET ${offset}
       `
   )} catch (err) {
-    throw new error("INVALID_DATA_INPUT",400); 
+    throw new error("INVALID_DATA_INPUT",500); 
   }
 }
 
@@ -114,7 +114,7 @@ const getNewDateList = async (firstCategory, subCategory, lastCategory, pageNo, 
       LIMIT ${limit} OFFSET ${offset}
       `
   )} catch (err) {
-    throw new error("INVALID_DATA_INPUT",400);
+    throw new error("INVALID_DATA_INPUT",500);
   }
 }
 
@@ -139,7 +139,7 @@ const getFirstCategoryPriceFilterList = async (firstCategory, pageNo, limit, opt
       LIMIT ${limit} OFFSET ${offset}
       `
     )}  catch (err) {
-      throw new error("INVALID_DATA_INPUT",400); 
+      throw new error("INVALID_DATA_INPUT",500); 
     }
 }
 
@@ -164,7 +164,7 @@ const getFirstCategoryNewList = async (firstCategory, pageNo, limit, option ) =>
       LIMIT ${limit} OFFSET ${offset}
       `
     )}  catch (err) {
-      throw new error("INVALID_DATA_INPUT",400);
+      throw new error("INVALID_DATA_INPUT",500);
     }
 }
 

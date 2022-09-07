@@ -22,7 +22,7 @@ group by follower_id )
       `
     )
   } catch(err) {
-    throw new error("INVALID_DATA_INPUT",400);  }
+    throw new error("INVALID_DATA_INPUT",500);  }
 }
 
 const updateRecentView = async (id, userId) => {
@@ -34,7 +34,7 @@ const updateRecentView = async (id, userId) => {
       `
     )
   } catch(err) {
-    throw new error("INVALID_DATA_INPUT",400);  }
+    throw new error("INVALID_DATA_INPUT",500);  }
 }
 
 const getMyStoreProductInfo = async (userId) => {
@@ -56,7 +56,7 @@ const getMyStoreProductInfo = async (userId) => {
       `
     )
   } catch(err) {
-    throw new error("INVALID_DATA_INPUT",400);  }
+    throw new error("INVALID_DATA_INPUT",500);  }
 }
 
 const getMyStoreReviewInfo = async (userId) => {
@@ -73,7 +73,7 @@ const getMyStoreReviewInfo = async (userId) => {
       `
     )
   } catch(err) {
-    throw new error("INVALID_DATA_INPUT",400);  }
+    throw new error("INVALID_DATA_INPUT",500);  }
 }
 
 const getMyStoreLikeInfo = async (userId) => {
@@ -88,7 +88,7 @@ const getMyStoreLikeInfo = async (userId) => {
       `
     )
   } catch(err) {
-    throw new error("INVALID_DATA_INPUT",400);  }
+    throw new error("INVALID_DATA_INPUT",500);  }
 }
 
 const getMyStoreFollowerInfo = async (userId) => {
@@ -111,7 +111,7 @@ const getMyStoreFollowerInfo = async (userId) => {
       `
     )
   } catch(err) {
-    throw new error("INVALID_DATA_INPUT",400);  }
+    throw new error("INVALID_DATA_INPUT",500);  }
 }
 
 const getMyStoreFollowingInfo = async (userId) => {
@@ -135,7 +135,7 @@ const getMyStoreFollowingInfo = async (userId) => {
       `
     )
   } catch(err) {
-    throw new error("INVALID_DATA_INPUT",400);  }
+    throw new error("INVALID_DATA_INPUT",500);  }
 }
 
 const checkFollow = async ( userId, followId ) => {
@@ -148,7 +148,7 @@ const checkFollow = async ( userId, followId ) => {
       `
     )
   } catch(err) {
-    throw new error("INVALID_DATA_INPUT",400);  }
+    throw new error("INVALID_DATA_INPUT",500);  }
 }
 
 const addFollow = async (userId, followId) => {
@@ -158,7 +158,7 @@ const addFollow = async (userId, followId) => {
       INSERT INTO follow(follower_id, followee_id) VALUES ((select id from users u where u.id=${userId}), ${followId})
       `, 
   )} catch (err) {
-    throw new error("INVALID_DATA_INPUT",400);  }
+    throw new error("INVALID_DATA_INPUT",500);  }
 }
 
 const deleteFollow = async (userId, followId) => {
@@ -172,7 +172,7 @@ const deleteFollow = async (userId, followId) => {
       `
     )
   } catch (err) {
-    throw new error("INVALID_DATA_INPUT",400);  }
+    throw new error("INVALID_DATA_INPUT",500);  }
 }
 
 
