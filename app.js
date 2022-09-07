@@ -4,8 +4,7 @@ const routes = require('./routes')
 
 const createApp = () => {
     const app = express();
-    app.use(cors());
-    app.use('/', router);
+    app.use('/', routes);
     app.use(express.json());
     app.use(morgan(':method :url :status :res[content-length] - :response-time ms'));
     return app;

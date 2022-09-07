@@ -1,5 +1,5 @@
 const {database} = require('./database');
-const errorFunc = require("../middlewares/errorHandler1");
+const error = require("../middlewares/errorConstructor");
 
 const getFirstCategoryProductList = async ( firstCategory, pageNo, Limit ) => {
   let offset = (10 * pageNo - 10);
@@ -21,7 +21,7 @@ const getFirstCategoryProductList = async ( firstCategory, pageNo, Limit ) => {
       `
     )
   } catch(err) {
-    errorFunc("INVALID_DATA_INPUT",400);  }
+    throw new error("INVALID_DATA_INPUT",400);  }
 }
 
 const getSubCategoryProductList = async ( firstCategory, subCategory, pageNo, Limit  ) => {
@@ -43,7 +43,7 @@ const getSubCategoryProductList = async ( firstCategory, subCategory, pageNo, Li
       LIMIT ${Limit} OFFSET ${offset}
       `
     )} catch(err) {
-    errorFunc("INVALID_DATA_INPUT",400);
+      throw new error("INVALID_DATA_INPUT",400);
   }
 }
 
@@ -66,7 +66,7 @@ const getLastCategoryProductList = async (firstCategory, subCategory, lastCatego
       LIMIT ${Limit} OFFSET ${offset}
       `
     )} catch(err) {
-      errorFunc("INVALID_DATA_INPUT",400);
+      throw new error("INVALID_DATA_INPUT",400);
   }
 }
 
@@ -90,7 +90,7 @@ const getPriceFilterList = async (firstCategory, subCategory, lastCategory, page
       LIMIT ${Limit} OFFSET ${offset}
       `
   )} catch (err) {
-    errorFunc("INVALID_DATA_INPUT",400);
+    throw new error("INVALID_DATA_INPUT",400);
   }
 }
 
@@ -115,7 +115,7 @@ const getNewDateList = async (firstCategory, subCategory, lastCategory, pageNo, 
       LIMIT ${Limit} OFFSET ${offset}
       `
   )} catch (err) {
-    errorFunc("INVALID_DATA_INPUT",400);
+    throw new error("INVALID_DATA_INPUT",400);
   }
 }
 
@@ -139,7 +139,7 @@ const getFirstCategoryPriceFilterList = async (firstCategory, pageNo, Limit, opt
       LIMIT ${Limit} OFFSET ${offset}
       `
     )}  catch (err) {
-      errorFunc("INVALID_DATA_INPUT",400);
+      throw new error("INVALID_DATA_INPUT",400);
     }
 }
 
@@ -163,7 +163,7 @@ const getFirstCategoryNewList = async (firstCategory, pageNo, Limit, option ) =>
       LIMIT ${Limit} OFFSET ${offset}
       `
     )}  catch (err) {
-      errorFunc("INVALID_DATA_INPUT",400);
+      throw new error("INVALID_DATA_INPUT",400);
     }
 }
 
