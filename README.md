@@ -5,32 +5,25 @@
 
 ## 기술 스택
 - FE : <img src="https://img.shields.io/badge/JavaScript-FFCA28?style=flat-square&logo=javascript&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Sass-58c3cc?style=flat-square&logo=Sass&logoColor=white"/>
   <img src="https://img.shields.io/badge/React.js-58c3cc?style=flat-square&logo=React&logoColor=white"/>
   <img src="https://img.shields.io/badge/CRA-58c3cc?style=flat-square&logo=Create-React-App&logoColor=white"/>
   <img src="https://img.shields.io/badge/React Router Dom-gray?style=flat-square&logo=React-Router&logoColor=F6BB43"/>
-  <img src="https://img.shields.io/badge/scss-4AA8D8?style=flat-square&logo=Sass&logoColor=white"/>
   <img src="https://img.shields.io/badge/eslint-000066?style=flat-square&logo=eslint&logoColor=white"/>
   <img src="https://img.shields.io/badge/prettier-00CC00?style=flat-square&logo=eslint&logoColor=white"/>
 
 
 - BE : 
-<img src="https://img.shields.io/badge/JavaScript-FFCA28?style=flat-square&logo=javascript&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Node.js-008000?style=flat-square&logo=Node.js&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Express-000080?style=flat-square&logo=Express&logoColor=white"/>
-  <img src="https://img.shields.io/badge/ MySQL8.0-6441a5?style=flat-square&logo=MySQL&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Postman-F6BB43?style=flat-square&logo=Postman&logoColor=white"/>
-<img src="https://img.shields.io/badge/AWS-232F3E?style=round&logo=Amazon%20AWS&logoColor=white"/>
+<img src="https://img.shields.io/badge/JavaScript-FFCA28?style=flat-square&logo=javascript&logoColor=white"/> <img src="https://img.shields.io/badge/Node.js-008000?style=flat-square&logo=Node.js&logoColor=white"/> <img src="https://img.shields.io/badge/Express-000080?style=flat-square&logo=Express&logoColor=white"/> <img src="https://img.shields.io/badge/ MySQL8.0-6441a5?style=flat-square&logo=MySQL&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Postman-F6BB43?style=flat-square&logo=Postman&logoColor=white"/> <img src="https://img.shields.io/badge/AWS-232F3E?style=round&logo=Amazon%20AWS&logoColor=white"/>
 
-- 협업 툴 : <img src="https://img.shields.io/badge/Slack-553830?style=flat-square&logo=Slack&logoColor=white"/>
-<img src="https://img.shields.io/badge/Trello-F6BB43?style=flat-square&logo=Trello&logoColor=white">
+- 협업 툴 : <img src="https://img.shields.io/badge/Slack-553830?style=flat-square&logo=Slack&logoColor=white"/> <img src="https://img.shields.io/badge/Trello-F6BB43?style=flat-square&logo=Trello&logoColor=white">
 
 
 
 ## 팀원 소개
 - <b>FE (3명)</b>
   > **문준기** </br>
-  - 구현사항 </br>
+  - 구현사항 
   
   > **박승민** </br>
   - 구현사항
@@ -51,10 +44,11 @@
 
 
 # ERD
+![Lightning ERD](https://user-images.githubusercontent.com/99805929/189044097-ae6f1b58-f80b-498e-98d1-07e2aa9af6b0.png)
 
 
 # API Documentation
-
+- [WENABADA](https://documenter.getpostman.com/view/22699914/VVBQX9Cy)
 
 
 # 프로젝트 회고록
