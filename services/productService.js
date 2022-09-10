@@ -35,6 +35,9 @@ const getProductlikeNumber = async (mainId) => {
 const getProductSearchList = async (query) => {
     const values = Object.values(query)
     const productSearchList = await productDao.getProductSearchList(values)
+    for(let i = 0; i < productSearchList.length; i++){
+      productSearchList[i]['counts'] = productSearchList.length;
+    }
     return productSearchList;
 };
 
@@ -78,7 +81,6 @@ const getSellerProduct = async(id) => {
 const getSellerReview = async(id) => {
   const getReview = await productDao.getSellerReview( id );
   const getResult = JSON.parse(JSON.stringify(Object.values(getReview[0])));
-
   if(getResult[0] == null) {
     const err = new Error('REVIEW_NOT_EXIST')
     throw err
@@ -117,6 +119,11 @@ const getCheckLikeInfo = async ( id, userId ) => {
   return results
 }
 
+const buyProduct = async(productId) => {
+  const buyProduct = await productDao.buyProduct(productId);
+  return buyProduct
+}
+
 module.exports = {
   getProductInfo,
   getProductCategoryInfo,
@@ -133,4 +140,5 @@ module.exports = {
   getProductRecentWatchList, 
   getProductlikeNumber, 
   getProductSearchList,
+  buyProduct
 }

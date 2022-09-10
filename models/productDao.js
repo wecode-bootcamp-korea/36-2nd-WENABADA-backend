@@ -315,6 +315,17 @@ const getSocialInfo = async ( userId ) => {
   }
 }
 
+const buyProduct = async (productId) => {
+  try {
+      return database.query(`
+      DELETE FROM products
+      WHERE products.id = ?`, 
+      [productId])
+  } catch (err) {
+      throw new error('INVALID_DATA_INPUT', 500)
+  }
+}
+
 module.exports = {
   getProductInfo,
   getProductCategoryInfo,
@@ -336,5 +347,6 @@ module.exports = {
   getProductRecentWatchList, 
   getProductlikeNumber, 
   getProductSearchList,
+  buyProduct
 }
 

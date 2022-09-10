@@ -38,7 +38,7 @@ const getProductlikeNumber = async (req, res) => {
 const getProductSearchList = async (req, res) => {
     const query = req.query
     const productSearchList = await productService.getProductSearchList(query);
-    res.status(200).json({productSearchList : productSearchList})
+    res.status(200).json(productSearchList)
 };
 
 const getProductInfo = async (req, res) => {
@@ -108,6 +108,15 @@ const getRelateInfo = async (req, res) => {
   res.status(200).json(getRelateInfo)
 }
 
+const buyProduct = async (req, res) => {
+  const { productId } = req.body;
+  if(!productId){
+      throw new error("KEY_ERROR", 400);
+  }
+  await productService.buyProduct(productId);
+  res.status(201).json({ message: "product_buy" });
+}
+
 module.exports = {
   getProductInfo,
   getProductCategoryInfo,
@@ -123,5 +132,6 @@ module.exports = {
   updateProductRecentWatchList, 
   getProductRecentWatchList, 
   getProductlikeNumber, 
-  getProductSearchList
+  getProductSearchList,
+  buyProduct
 }
