@@ -35,4 +35,6 @@ router.get('/seller/product', validateToken,errorHandler(productController.getSe
 
 router.get('/seller/review', validateToken,errorHandler(productController.getSellerReview));
 
+router.delete('/buy', errorHandler(productController.buyProduct));
+
 module.exports = { router };
