@@ -36,12 +36,12 @@
   - 구현사항 : 소셜 로그인 API, 메인 페이지 API, AWS 배포
   
   > **정재하** </br>
-  - 구현사항 : 카테고리, 제품 상세 페이지, 내상점 페이지 API 구현</br>
+  - 구현사항 : 카테고리, 제품 상세 페이지, 내상점 페이지, 상품등록 API 구현</br>
   
 
 
 # 시연 영상
-
+![WENABADA 시연영상](https://www.youtube.com/watch?v=HDuGehcfV14&ab_channel=%EB%B0%95%EC%8A%B9%EB%AF%BC)
 
 # ERD
 ![Lightning ERD](https://user-images.githubusercontent.com/99805929/189044097-ae6f1b58-f80b-498e-98d1-07e2aa9af6b0.png)
