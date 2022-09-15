@@ -41,7 +41,7 @@
 
 
 # 시연 영상
-![WENABADA 시연영상](https://www.youtube.com/watch?v=HDuGehcfV14&ab_channel=%EB%B0%95%EC%8A%B9%EB%AF%BC)
+[WENABADA 시연영상](https://www.youtube.com/watch?v=HDuGehcfV14&ab_channel=%EB%B0%95%EC%8A%B9%EB%AF%BC)
 
 # ERD
 ![Lightning ERD](https://user-images.githubusercontent.com/99805929/189044097-ae6f1b58-f80b-498e-98d1-07e2aa9af6b0.png)
