@@ -3,7 +3,8 @@ const likeEnum = Object.freeze({
   notExists: 0,
   First: 0,
   Sub:1,
-  Last: 2
+  Last: 2,
+  notDefined: undefined
 });
 
 module.exports = likeEnum;
