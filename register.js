@@ -10,8 +10,8 @@ const upload = multer({
         storage: multerS3({
             s3: s3,
             bucket: 'wenabada',
-            contentType: multerS3.AUTO_CONTENT_TYPE
-,            key: (req, file, cb) => {
+            contentType: multerS3.AUTO_CONTENT_TYPE,            
+            key: (req, file, cb) => {
                 cb(null, `upload/${Date.now()}_${file.originalname}`)
             }
         })
